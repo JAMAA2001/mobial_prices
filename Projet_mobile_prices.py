@@ -15,7 +15,7 @@ X = df.drop("price_range", axis=1)
 y = df["price_range"]
 
 # Diviser les données
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
 
 # Normalisation
 scaler = RobustScaler()
@@ -34,7 +34,7 @@ joblib.dump(scaler,"scaler.pkl")
 st.title("Prédiction du prix d'un téléphone")
 
 with st.form("formulaire_caractéristiques"):
-    battery_power = st.number_input("Battery Power", min_value=500, max_value=2000)
+    battery_power = st.number_input("Battery Power", min_value=500 , max_value= 6000)
     blue = st.selectbox("Bluetooth", [0, 1])
     clock_speed = st.number_input("Clock Speed", step=0.1)
     dual_sim = st.selectbox("Dual SIM", [0, 1])
